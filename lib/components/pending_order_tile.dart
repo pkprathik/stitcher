@@ -4,15 +4,24 @@ import 'package:google_fonts/google_fonts.dart';
 class PendingOrderTile extends StatelessWidget {
   final String phone;
   final String orderlist;
+  final String cost;
+  final VoidCallback onDelete;
+  final Function(String) onDone;
 
   const PendingOrderTile({
-    super.key,
+    Key? key,
     required this.phone,
     required this.orderlist,
-  });
+    required this.cost,
+    required this.onDelete,
+    required this.onDone,
+  }):super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _controller = TextEditingController(text: cost);
+
+
     return Container(
       width: 350,
       height: 250,
@@ -24,7 +33,11 @@ class PendingOrderTile extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.person,size: 75,),
+              const Column(
+                children: [
+                  Icon(Icons.person,size: 75,),
+                ],
+              ),
 
               const SizedBox(width: 20,),
 
@@ -94,31 +107,112 @@ class PendingOrderTile extends StatelessWidget {
 
           const SizedBox(height: 20,),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          _controller.text != "0"
+          ?Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  padding: EdgeInsets.only(left: 30,right: 25,top: 6),
-                  width: 100,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.green,
+                // padding: EdgeInsets.only(top: 8),
+                width: 120,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.white60,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: TextField(
+                  controller: _controller,
+                  keyboardType: TextInputType.number,
+                  style: GoogleFonts.lato(
+                      fontSize: 20,
+                      color:Colors.grey.shade900
                   ),
-
-                  child: Text("DONE")
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.currency_rupee),
+                  ),
+                ),
               ),
-              const SizedBox(width: 50,),
+              GestureDetector(
+                onTap: () {
+                  onDone(_controller.text);
+                },
+                child: Container(
+                    padding: EdgeInsets.only(left: 25,right: 25,top: 6),
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.blue,
+                    ),
+                    child: Text("EDIT")
+                ),
+              ),
+              // const SizedBox(width: 50,),
+              GestureDetector(
+                onTap: onDelete,
+                child: Container(
+                    padding: EdgeInsets.only(left: 22,right: 15,top: 6),
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.greenAccent,
+                    ),
+                    child: Text("FINISH")
+                ),
+              ),
+            ],
+          )
+          :Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               Container(
-                  padding: EdgeInsets.only(left: 30,right: 25,top: 6),
-                  width: 115,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.red,
+                // padding: EdgeInsets.only(top: 8),
+                width: 120,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.white60,
+                    borderRadius: BorderRadius.circular(10)
+                ),
+                child: TextField(
+                  controller: _controller,
+                  keyboardType: TextInputType.number,
+                  style: GoogleFonts.lato(
+                      fontSize: 20,
+                      color:Colors.grey.shade900
                   ),
-
-                  child: Text("REMOVE")
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.currency_rupee),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  onDone(_controller.text);
+                },
+                child: Container(
+                    padding: EdgeInsets.only(left: 25,right: 25,top: 6),
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.green,
+                    ),
+                    child: Text("DONE")
+                ),
+              ),
+              // const SizedBox(width: 50,),
+              GestureDetector(
+                onTap: onDelete,
+                child: Container(
+                    padding: EdgeInsets.only(left: 16,right: 15,top: 6),
+                    width: 90,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.red,
+                    ),
+                    child: Text("REMOVE")
+                ),
               ),
             ],
           ),

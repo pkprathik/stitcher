@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +84,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 25),
 
             MyButton(
-              text: "login",
+              text: "Login",
               onTap: () => login(context),
             ),
 

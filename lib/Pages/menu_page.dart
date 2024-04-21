@@ -40,14 +40,15 @@ class _MenuPageState extends State<MenuPage> {
                 child: MyCustomButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const CustomersPage()),
+                        context,
+                        MaterialPageRoute(builder: (context) => AddOrders()),
                       );
                     },
-                    icon:Icons.person_search,
-                    label: "Customers"
+                    icon:Icons.add_box_outlined,
+                    label: "Add Orders"
                 ),
               ),
+
               Container(
                 padding: const EdgeInsets.all(18),
                 child: MyCustomButton(
@@ -65,19 +66,34 @@ class _MenuPageState extends State<MenuPage> {
           ),
           Row(
             children: [
+              // Container(
+              //   padding: const EdgeInsets.all(18),
+              //   child: MyCustomButton(
+              //       onPressed: () {
+              //         Navigator.push(
+              //           context,
+              //           MaterialPageRoute(builder: (context) => AddOrders()),
+              //         );
+              //       },
+              //       icon:Icons.add_box_outlined,
+              //       label: "Add Orders"
+              //   ),
+              // ),
+
               Container(
                 padding: const EdgeInsets.all(18),
                 child: MyCustomButton(
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AddOrders()),
+                        MaterialPageRoute(builder: (context) => const MyAccount()),
                       );
                     },
-                    icon:Icons.add_box_outlined,
-                    label: "Add Orders"
+                    icon:Icons.person_2_outlined,
+                    label: "Account"
                 ),
               ),
+
               Container(
                 padding: const EdgeInsets.all(18),
                 child: MyCustomButton(
@@ -95,27 +111,17 @@ class _MenuPageState extends State<MenuPage> {
           ),
           Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(18),
-                child: MyCustomButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const MyAccount()),
-                      );
-                    },
-                    icon:Icons.person_2_outlined,
-                    label: "Account"
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(18),
-                child: MyCustomButton(
-                    onPressed: () {
-                      authservice.signOut();
-                    },
-                    icon:Icons.logout,
-                    label: "Logout"
+              Padding(
+                padding: const EdgeInsets.only(left: 100),
+                child: Container(
+                  padding: const EdgeInsets.all(18),
+                  child: MyCustomButton(
+                      onPressed: () {
+                        authservice.signOut();
+                      },
+                      icon:Icons.logout,
+                      label: "Logout"
+                  ),
                 ),
               )
             ],

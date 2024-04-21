@@ -9,18 +9,21 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 138, 60, 55),
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const SizedBox(height: 25),
 
-          Text(
-            "Sticher",
-            style: GoogleFonts.dmSerifDisplay(
-              fontSize: 28,
-              color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.only(top: 8, left: 20),
+            child: Text(
+              "STITCHER",
+              style: GoogleFonts.dmSerifDisplay(
+                fontSize: 50,
+                color: Color.fromRGBO(45,149, 150, 10),
+              ),
             ),
           ),
 
@@ -33,11 +36,13 @@ class IntroPage extends StatelessWidget {
 
           const SizedBox(height: 25,),
 
-          Text(
-            "Something",
-            style: GoogleFonts.dmSerifDisplay(
-              fontSize: 44,
-              color: Colors.white,
+          Container(
+            child: Text(
+              "Something new!",
+              style: GoogleFonts.dmSerifDisplay(
+                fontSize: 44,
+                color: Color.fromRGBO(45,149, 150, 10),
+              ),
             ),
           ),
 

@@ -154,10 +154,12 @@ class AddOrders extends StatelessWidget {
       FirebaseFirestore.instance.collection('orders');
 
       currentUserEmail = await _authService.getCurrentUserEmail();
-      await ordersCollection.doc(currentUserEmail).collection(customerNumber).add({
+      await ordersCollection.doc(currentUserEmail).collection('data').add({
+        'customerNumber':customerNumber,
         'customerName': customerName,
         'orderList': orderList,
         'description': description,
+        'cost' : "0",
       });
 
       // Optional: Show a success message or navigate to another screen
