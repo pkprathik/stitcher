@@ -69,7 +69,7 @@ class TotalProfit extends StatelessWidget {
                           ),
                           width: 190,
                           child: Text(
-                            "1,000",
+                            "566",
                             style: GoogleFonts.lato(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ class TotalProfit extends StatelessWidget {
                           ),
                           width: 190,
                           child: Text(
-                            "100,000",
+                            "2398",
                             style: GoogleFonts.lato(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -216,7 +216,7 @@ class TotalProfit extends StatelessWidget {
                           ),
                           width: 140,
                           child: Text(
-                            "7",
+                            "2",
                             style: GoogleFonts.lato(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

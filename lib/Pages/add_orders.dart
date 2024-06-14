@@ -126,7 +126,8 @@ class AddOrders extends StatelessWidget {
 
           MyButton(
               onTap: () => _addOrder(context),
-              text: "ADD")
+              text: "ADD"
+          )
         ],
       ),
     );

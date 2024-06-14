@@ -15,6 +15,8 @@ class AuthService {
       String userUid = userCredential.user!.uid;
 
       await _usersCollection.doc(email).set({
+
+
         'email': email,
         'name': name,
         'phone': phone,
